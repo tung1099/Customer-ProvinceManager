@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Provinces</title>
+</head>
+<body>
+<a href="/create-province">Thêm 1 tỉnh mới</a>
+<h1 style="color: indianred;font-family: sans-serif;">Provinces</h1>
+<table border="1">
+    <tr>
+        <th>#</th>
+        <th>Tên tỉnh</th>
+        <th>Chỉnh sửa</th>
+        <th>Xóa</th>
+        <th>Xem</th>
+    </tr>
+    <th:block th:each="province : ${province}">
+        <tr>
+            <td th:text="${province.id}"></td>
+            <td th:text="${province.name}"></td>
+            <td><a th:href="@{/edit-province/__${province.id}__ }">Chỉnh sửa</a></td>
+            <td><a th:href="@{/delete-province/__${province.id}__ }">Xóa</a></td>
+            <td><a th:href="@{/view-province/__${province.id}__ }">Xem</a></td>
+        </tr>
+    </th:block>
+</table>
+<br>
+<a href="/customers">Danh sách khách hàng</a>
+</body>
+</html>

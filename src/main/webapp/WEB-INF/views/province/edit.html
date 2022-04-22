@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chỉnh sửa</title>
+</head>
+<body>
+<h1 style="color: indianred;font-family: sans-serif;">Chỉnh sửa</h1>
+<a href="/provinces">Danh sách các tỉnh</a>
+<th:block th:if="${message}">
+    <p style="color:lawngreen" th:text="${message}"></p>
+</th:block>
+<form th:action="@{/edit-province}" th:object="${province}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Tên tỉnh:</td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Chỉnh sửa"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
